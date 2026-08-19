@@ -84,7 +84,7 @@
       from the LibriSpeech sub-100 set used in the pilot MUSHRA listening test,
       drawn from three ACE rooms; (ii) the dataset file lists for IEEE Sentences
       and LibriSpeech sub-100; (iii) the pilot MUSHRA results; (iv) the
-      cross-room (CR1) RIR configurations; and (v) miscellaneous downloads.
+      cross-room (CR) RIR configurations; and (v) miscellaneous downloads.
     </p>
 
     <div class="tabs">
@@ -178,7 +178,7 @@
           non-native English speakers, ages 20&ndash;60). Each participant
           rated six trials (two utterances &times; three rooms) covering six
           conditions: hidden reference, reverberant, WPE, BUDDy,
-          DIL<sub>matched</sub>, DIL<sub>CR1</sub>. The results below are
+          DIL<sub>matched</sub>, DIL<sub>CR</sub>. The results below are
           reported as <em>indications</em> rather than conclusive findings.
         </p>
 
@@ -221,7 +221,7 @@
               <td>2.62 / 12</td>
             </tr>
             <tr>
-              <td class="method">DIL<sub>CR1</sub></td>
+              <td class="method">DIL<sub>CR</sub></td>
               <td>2.59 / 4</td>
               <td>2.95 / 4</td>
               <td>3.45 / 0</td>
@@ -257,9 +257,9 @@
     <!-- =================== Cross-Room Config tab =================== -->
     <div id="crossroom" class="tab-content">
       <div class="card">
-        <h2>Cross-Room (CR1) RIR Configurations</h2>
+        <h2>Cross-Room (CR) RIR Configurations</h2>
         <p class="small">
-          DIL<sub>CR1</sub> denotes the practical setting in which the
+          DIL<sub>CR</sub> denotes the practical setting in which the
           candidate room impulse response (RIR) used as the prior is drawn
           from a different ACE room than the one where the reverberant signal
           was recorded. We adopt an <b>adjacent-T<sub>60</sub> pairing</b>: for
@@ -274,7 +274,7 @@
             <tr>
               <th>Measurement Room</th>
               <th>T<sub>60</sub> (s)</th>
-              <th>CR1 Prior (RIR Source)</th>
+              <th>CR Prior (RIR Source)</th>
               <th>Prior T<sub>60</sub> (s)</th>
             </tr>
           </thead>
@@ -357,7 +357,7 @@
       { label: "WPE",               suffix: "_wpe.wav"         },
       { label: "BUDDy",             suffix: "_buddy.wav"       },
       { label: "DIL (matched)",     suffix: "_dil_matched.wav" },
-      { label: "DIL (CR1)",         suffix: "_dil_cr1.wav"     }
+      { label: "DIL (CR)",         suffix: "_dil_cr1.wav"     }
     ];
 
     function el(tag, attrs = {}, children = []) {
