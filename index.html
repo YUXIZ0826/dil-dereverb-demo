@@ -175,7 +175,9 @@
           manually truncated to the speech-active region; the exact truncated
           waveforms used in the revision experiments are provided here so the
           results can be reproduced without re-doing the truncation.
-          The file list gives the original EARS path of each utterance.
+          Files are named <code>pXXX_fYY_NNN.wav</code> (EARS speaker, recording
+          file, segment); the list below is in the same order as the EARS-100
+          RIR-assignment CSV.
         </p>
         <div class="file-list" id="ears-list"></div>
         <div class="btnrow">
@@ -393,7 +395,10 @@
           For EARS-100 the arrays are stored per room as produced by the
           revision pipeline; the sequences are identical across the three rooms.
           Load with <code>numpy.load(path)</code>; each array has one entry per
-          utterance, in the order of the corresponding file list.
+          utterance, in the row order of the corresponding CSV (for IEEE this
+          coincides with the list in "Dataset Details"; for LibriSpeech the CSV
+          order is the original experiment order, not the sorted list shown
+          there &mdash; use the <code>utterance_id</code> column to join).
         </p>
         <div class="btnrow" style="margin-top: 14px;">
           <a class="btn" href="./rir_assignments/rir_assignments_all.zip" download>Download all RIR assignments (.zip)</a>
@@ -717,7 +722,107 @@
     renderFileList(LIBRI_CLEAN, "libri-list", "test-clean (50)");
     renderFileList(LIBRI_OTHER, "libri-list", "test-other (50)");
     // EARS-100: filled from ears100_revision_filelist.txt (see RIR Assignments tab)
-    const EARS_LIST = [];
+    const EARS_LIST = [
+      "p001_f01_001.wav",
+      "p001_f01_002.wav",
+      "p001_f01_003.wav",
+      "p001_f01_004.wav",
+      "p001_f02_001.wav",
+      "p001_f02_002.wav",
+      "p001_f02_003.wav",
+      "p001_f02_004.wav",
+      "p001_f03_001.wav",
+      "p001_f03_002.wav",
+      "p001_f03_003.wav",
+      "p001_f03_004.wav",
+      "p001_f04_001.wav",
+      "p001_f04_002.wav",
+      "p001_f04_003.wav",
+      "p001_f04_004.wav",
+      "p001_f05_001.wav",
+      "p001_f05_002.wav",
+      "p001_f05_003.wav",
+      "p001_f05_004.wav",
+      "p002_f01_001.wav",
+      "p002_f01_002.wav",
+      "p002_f01_003.wav",
+      "p002_f01_004.wav",
+      "p002_f02_001.wav",
+      "p002_f02_002.wav",
+      "p002_f02_003.wav",
+      "p002_f02_004.wav",
+      "p002_f03_001.wav",
+      "p002_f03_002.wav",
+      "p002_f03_003.wav",
+      "p002_f03_004.wav",
+      "p002_f04_001.wav",
+      "p002_f04_002.wav",
+      "p002_f04_003.wav",
+      "p002_f04_004.wav",
+      "p002_f05_001.wav",
+      "p002_f05_002.wav",
+      "p002_f05_003.wav",
+      "p002_f05_004.wav",
+      "p003_f01_001.wav",
+      "p003_f01_002.wav",
+      "p003_f01_003.wav",
+      "p003_f01_004.wav",
+      "p003_f02_001.wav",
+      "p003_f02_002.wav",
+      "p003_f02_003.wav",
+      "p003_f02_004.wav",
+      "p003_f03_001.wav",
+      "p003_f03_002.wav",
+      "p003_f03_003.wav",
+      "p003_f03_004.wav",
+      "p003_f04_001.wav",
+      "p003_f04_002.wav",
+      "p003_f04_003.wav",
+      "p003_f04_004.wav",
+      "p003_f05_001.wav",
+      "p003_f05_002.wav",
+      "p003_f05_003.wav",
+      "p003_f05_004.wav",
+      "p004_f01_001.wav",
+      "p004_f01_002.wav",
+      "p004_f01_003.wav",
+      "p004_f01_004.wav",
+      "p004_f02_001.wav",
+      "p004_f02_002.wav",
+      "p004_f02_003.wav",
+      "p004_f02_004.wav",
+      "p004_f03_001.wav",
+      "p004_f03_002.wav",
+      "p004_f03_003.wav",
+      "p004_f03_004.wav",
+      "p004_f04_001.wav",
+      "p004_f04_002.wav",
+      "p004_f04_003.wav",
+      "p004_f04_004.wav",
+      "p004_f05_001.wav",
+      "p004_f05_002.wav",
+      "p004_f05_003.wav",
+      "p004_f05_004.wav",
+      "p005_f01_001.wav",
+      "p005_f01_002.wav",
+      "p005_f01_003.wav",
+      "p005_f01_004.wav",
+      "p005_f02_001.wav",
+      "p005_f02_002.wav",
+      "p005_f02_003.wav",
+      "p005_f02_004.wav",
+      "p005_f03_001.wav",
+      "p005_f03_002.wav",
+      "p005_f03_003.wav",
+      "p005_f03_004.wav",
+      "p005_f04_001.wav",
+      "p005_f04_002.wav",
+      "p005_f04_003.wav",
+      "p005_f04_004.wav",
+      "p005_f05_001.wav",
+      "p005_f05_002.wav",
+      "p005_f05_003.wav",
+      "p005_f05_004.wav"];
     renderFileList(EARS_LIST, "ears-list");
   </script>
 </body>
