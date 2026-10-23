@@ -83,10 +83,10 @@
       This page accompanies the submitted paper. It hosts: (i) audio examples
       from the LibriSpeech sub-100 set used in the pilot MUSHRA listening test,
       drawn from three ACE rooms; (ii) the dataset file lists for IEEE Sentences,
-      LibriSpeech sub-100 and EARS-100, including the 100 manually truncated
+      LibriSpeech sub-100 and EARS-100, including the 100 manually segmented
       EARS utterances; (iii) the pilot MUSHRA results; (iv) the cross-room (CR)
       RIR configurations; (v) the per-utterance RIR channel assignments
-      (H1 / H2<sub>SR</sub>) used in the reported experiments; and (vi)
+      (<i>h</i><sub>1</sub> / <i>h</i><sub>2,SR</sub>) used in the reported experiments; and (vi)
       consolidated downloads.
     </p>
 
@@ -167,14 +167,15 @@
           <a class="btn" href="./librispeech_sub100_list.txt" download>Download LibriSpeech list (.txt)</a>
         </div>
 
-        <h3 style="margin-top: 24px;">EARS-100 (100 utterances, manually truncated)</h3>
+        <h3 style="margin-top: 24px;">EARS-100 (100 utterances, manually segmented)</h3>
         <p class="small">
           100 utterances drawn from the <b>EARS</b> corpus (Expressive Anechoic
-          Recordings of Speech). Because the original EARS recordings contain
-          long leading/trailing silences and pauses, each utterance was
-          manually truncated to the speech-active region; the exact truncated
-          waveforms used in the reported experiments are provided here so the
-          results can be reproduced without re-doing the truncation.
+          Recordings of Speech). The original EARS recordings are long and
+          contain multiple sentences separated by natural pauses, so each
+          recording was manually segmented at these pauses into
+          utterance-level segments; the exact segmented waveforms used in the
+          reported experiments are provided here so the results can be
+          reproduced without re-doing the segmentation.
           Files are named <code>pXXX_fYY_NNN.wav</code> (EARS speaker, recording
           file, segment); the list below is in the same order as the EARS-100
           RIR-assignment CSV.
@@ -182,7 +183,7 @@
         <div class="file-list" id="ears-list"></div>
         <div class="btnrow">
           <a class="btn" href="./rir_assignments/ears100/ears100_revision_filelist.txt" download>Download EARS-100 list (.txt)</a>
-          <a class="btn" href="./audio/ears100_truncated.zip" download>Download truncated EARS-100 audio (.zip, 42 MB)</a>
+          <a class="btn" href="./audio/ears100_segmented.zip" download>Download segmented EARS-100 audio (.zip, 42 MB)</a>
         </div>
         <p class="small" style="margin-top: 8px;">
           Individual files are also available under <code>audio/ears100/</code>
@@ -449,8 +450,8 @@
           <a class="btn" href="./librispeech_sub100_list.txt" download>LibriSpeech sub-100 list (.txt)</a>
           <a class="btn" href="./mushra_raw_scores.csv" download>MUSHRA raw scores (.csv)</a>
           <a class="btn" href="./rir_assignments/ears100/ears100_revision_filelist.txt" download>EARS-100 list (.txt)</a>
-          <a class="btn" href="./audio/ears100_truncated.zip" download>Truncated EARS-100 audio (.zip)</a>
-          <a class="btn" href="./rir_assignments/rir_assignments_all.zip" download>RIR assignments: H1 / H2<sub>SR</sub> (.zip)</a>
+          <a class="btn" href="./audio/ears100_segmented.zip" download>Segmented EARS-100 audio (.zip)</a>
+          <a class="btn" href="./rir_assignments/rir_assignments_all.zip" download>RIR assignments: <i>h</i><sub>1</sub> / <i>h</i><sub>2,SR</sub> (.zip)</a>
         </div>
         <p class="small" style="margin-top: 10px; padding: 8px 12px; border-left: 3px solid #ccc;">
           <b>Note for reviewers:</b> if the download buttons on this page do not
