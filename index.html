@@ -444,15 +444,13 @@
       <div class="card">
         <h2>Geometry used for the <code>ismG</code> configuration</h2>
         <p class="small">
-          All coordinates in metres, ACE coordinate system (origin at a room
-          corner, <i>x</i> along the room length, <i>y</i> along the width).
-          All source and microphone positions are at a height of 1.19 m. Room
-          dimensions follow Table 1 of the ACE WASPAA 2015 paper (one-decimal
-          values). Source and channel-1 (array centre) positions follow the ACE
-          floor plans; the outer cruciform channels lie 0.25 m from the centre,
-          numbered clockwise when viewed from above as marked on the ACE floor
-          plans and photographs. All positions were verified against the
-          direct-path arrivals in the corresponding measured RIRs.
+          The coordinates below specify the geometry used for the
+          geometry-matched ISM (<code>ismG</code>) experiments in the three ACE
+          rooms. Room dimensions and source&ndash;microphone positions are based
+          on the ACE documentation, with microphone orientations checked against
+          measured-RIR time differences of arrival (TDOAs). All coordinates are
+          in metres, and the cruciform array consists of a central microphone
+          (Ch 1) and four outer microphones located 0.25 m from the centre.
         </p>
 
         <table class="tbl">
@@ -481,29 +479,15 @@
         </table>
 
         <p class="small" style="margin-top: 14px;">
-          <b>Note on Lecture Room 2.</b> The ACE documentation gives the source
-          position as (6.03, 3.14), implying a source&ndash;array distance of
-          2.89 m at microphone Position 1. This is inconsistent with the
-          floor-plan drawing, on which the loudspeaker is placed immediately
-          beside the cruciform array, and with the measured RIRs, whose
-          direct-path arrivals indicate a distance of approximately 1 m.
-          Fitting the source <i>y</i>-coordinate to the direct-path TDOAs
-          independently for the Position 1 and Position 2 recordings gives
-          5.69 m and 5.71 m, respectively; the value 5.70 m is used. A
-          plausible explanation is that the <i>y</i>-coordinate of the source
-          was measured from the opposite wall (9.29 &minus; 3.13 &asymp; 6.16 m).
+          <b>Note on Lecture Room 2.</b> The documented source position
+          (6.03, 3.14) implies a source&ndash;microphone distance of 2.89 m,
+          inconsistent with the ACE floor plan and measured-RIR direct-path
+          arrivals (approximately 1 m). TDOA-based estimates from microphone
+          Positions 1 and 2 give source <i>y</i>-coordinates of 5.69 m and
+          5.71 m, respectively. We therefore adopt 5.70 m for the
+          <code>ismG</code> experiments.
         </p>
 
-        <h3 style="margin-top: 18px;">Full-precision channel coordinates as used in the code</h3>
-        <pre style="background: #f6f6f6; padding: 12px; border-radius: 8px; overflow-x: auto; font-size: 13px;">803:  Ch2 (2.00146, 4.32300)  Ch3 (2.22300, 4.59854)  Ch4 (2.49854, 4.37700)  Ch5 (2.27700, 4.10146)
-508:  Ch2 (0.82030, 3.93221)  Ch3 (1.08221, 4.16970)  Ch4 (1.31970, 3.90779)  Ch5 (1.05779, 3.67030)
-403a: Ch2 (4.84000, 5.87000)  Ch3 (5.09000, 6.12000)  Ch4 (5.34000, 5.87000)  Ch5 (5.09000, 5.62000)</pre>
-        <p class="small">
-          Ch 1 coordinates are as in the table above. The outer channels are
-          placed at radius 0.25 m from Ch 1, at the Ch 2 azimuth given above and
-          successive 90&deg; clockwise steps; the two-decimal values in the table
-          are these coordinates rounded.
-        </p>
       </div>
     </div>
 
