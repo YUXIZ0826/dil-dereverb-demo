@@ -86,8 +86,9 @@
       LibriSpeech sub-100 and EARS-100, including the 100 manually segmented
       EARS utterances; (iii) the pilot MUSHRA results; (iv) the cross-room (CR)
       RIR configurations; (v) the per-utterance RIR channel assignments
-      (<i>h</i><sub>1</sub> / <i>h</i><sub>2,SR</sub>) used in the reported experiments; and (vi)
-      consolidated downloads.
+      (<i>h</i><sub>1</sub> / <i>h</i><sub>2,SR</sub>) used in the reported experiments; (vi) the room and array geometry used
+      for the image-source-model (ISM) configuration; and (vii) consolidated
+      downloads.
     </p>
 
     <div class="tabs">
@@ -98,6 +99,7 @@
       <button class="tab-button" onclick="openTab('mushra')">MUSHRA Data</button>
       <button class="tab-button" onclick="openTab('crossroom')">Cross-Room Config</button>
       <button class="tab-button" onclick="openTab('rir')">RIR Assignments</button>
+      <button class="tab-button" onclick="openTab('geometry')">ISM Geometry</button>
       <button class="tab-button" onclick="openTab('downloads')">Downloads</button>
     </div>
 
@@ -433,6 +435,74 @@
           browsed and downloaded individually, or as a single archive via
           "Download repository", at
           <a href="https://anonymous.4open.science/r/dereverb-demo-2026/" target="_blank" rel="noopener">anonymous.4open.science/r/dereverb-demo-2026/</a>.
+        </p>
+      </div>
+    </div>
+
+    <!-- =================== ISM Geometry tab =================== -->
+    <div id="geometry" class="tab-content">
+      <div class="card">
+        <h2>Geometry used for the <code>ismG</code> configuration</h2>
+        <p class="small">
+          All coordinates in metres, ACE coordinate system (origin at a room
+          corner, <i>x</i> along the room length, <i>y</i> along the width).
+          All source and microphone positions are at a height of 1.19 m. Room
+          dimensions follow Table 1 of the ACE WASPAA 2015 paper (one-decimal
+          values). Source and channel-1 (array centre) positions follow the ACE
+          floor plans; the outer cruciform channels lie 0.25 m from the centre,
+          numbered clockwise when viewed from above as marked on the ACE floor
+          plans and photographs. All positions were verified against the
+          direct-path arrivals in the corresponding measured RIRs.
+        </p>
+
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Office 2 (803)</th>
+              <th>Lecture Room 1 (508)</th>
+              <th>Lecture Room 2 (403a)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="method">Room (L &times; W &times; H)</td><td>3.2 &times; 5.1 &times; 2.9</td><td>6.9 &times; 9.7 &times; 3.0</td><td>13.4 &times; 9.2 &times; 2.9</td></tr>
+            <tr><td class="method">ACE microphone position</td><td>2</td><td>2</td><td>1</td></tr>
+            <tr><td class="method">RIR session used as <i>h</i><sub>1</sub></td><td>17</td><td>101</td><td>79</td></tr>
+            <tr><td class="method">Source (Fostex 6301B)</td><td>(1.41, 1.73, 1.19)</td><td>(3.65, 3.73, 1.19)</td><td>(6.03, <b>5.70</b>, 1.19)</td></tr>
+            <tr><td class="method">Ch 1 (centre)</td><td>(2.25, 4.35, 1.19)</td><td>(1.07, 3.92, 1.19)</td><td>(5.09, 5.87, 1.19)</td></tr>
+            <tr><td class="method">Ch 2</td><td>(2.00, 4.32, 1.19)</td><td>(0.82, 3.93, 1.19)</td><td>(4.84, 5.87, 1.19)</td></tr>
+            <tr><td class="method">Ch 3</td><td>(2.22, 4.60, 1.19)</td><td>(1.08, 4.17, 1.19)</td><td>(5.09, 6.12, 1.19)</td></tr>
+            <tr><td class="method">Ch 4</td><td>(2.50, 4.38, 1.19)</td><td>(1.32, 3.91, 1.19)</td><td>(5.34, 5.87, 1.19)</td></tr>
+            <tr><td class="method">Ch 5</td><td>(2.28, 4.10, 1.19)</td><td>(1.06, 3.67, 1.19)</td><td>(5.09, 5.62, 1.19)</td></tr>
+            <tr><td class="method">Ch 2 azimuth (0&deg; = +<i>x</i>, CCW positive)</td><td>186&deg;</td><td>177&deg;</td><td>180&deg;</td></tr>
+            <tr><td class="method">Source&ndash;Ch 1 distance</td><td>2.75</td><td>2.59</td><td>0.96</td></tr>
+            <tr><td class="method">T<sub>60</sub> (room-level reference)</td><td>0.39 s</td><td>0.64 s</td><td>1.25 s</td></tr>
+          </tbody>
+        </table>
+
+        <p class="small" style="margin-top: 14px;">
+          <b>Note on Lecture Room 2.</b> The ACE documentation gives the source
+          position as (6.03, 3.14), implying a source&ndash;array distance of
+          2.89 m at microphone Position 1. This is inconsistent with the
+          floor-plan drawing, on which the loudspeaker is placed immediately
+          beside the cruciform array, and with the measured RIRs, whose
+          direct-path arrivals indicate a distance of approximately 1 m.
+          Fitting the source <i>y</i>-coordinate to the direct-path TDOAs
+          independently for the Position 1 and Position 2 recordings gives
+          5.69 m and 5.71 m, respectively; the value 5.70 m is used. A
+          plausible explanation is that the <i>y</i>-coordinate of the source
+          was measured from the opposite wall (9.29 &minus; 3.13 &asymp; 6.16 m).
+        </p>
+
+        <h3 style="margin-top: 18px;">Full-precision channel coordinates as used in the code</h3>
+        <pre style="background: #f6f6f6; padding: 12px; border-radius: 8px; overflow-x: auto; font-size: 13px;">803:  Ch2 (2.00146, 4.32300)  Ch3 (2.22300, 4.59854)  Ch4 (2.49854, 4.37700)  Ch5 (2.27700, 4.10146)
+508:  Ch2 (0.82030, 3.93221)  Ch3 (1.08221, 4.16970)  Ch4 (1.31970, 3.90779)  Ch5 (1.05779, 3.67030)
+403a: Ch2 (4.84000, 5.87000)  Ch3 (5.09000, 6.12000)  Ch4 (5.34000, 5.87000)  Ch5 (5.09000, 5.62000)</pre>
+        <p class="small">
+          Ch 1 coordinates are as in the table above. The outer channels are
+          placed at radius 0.25 m from Ch 1, at the Ch 2 azimuth given above and
+          successive 90&deg; clockwise steps; the two-decimal values in the table
+          are these coordinates rounded.
         </p>
       </div>
     </div>
